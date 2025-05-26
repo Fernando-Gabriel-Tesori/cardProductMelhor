@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoKeys Gallery</title>
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="./style/main.css" />
+</head>
+
+<body>
+    <main class="gallery">
+        <section class="card">
+            <div class="model">
+                <model-viewer id="model-leaf" src="./assets/models/leaves_keyboard.glb" alt="Teclado LeafKey em 3D"
+                    auto-rotate camera-controls ar shadow-intensity="1"></model-viewer>
+            </div>
+            <div class="content">
+                <h2>LeafKey</h2>
+                <p>Inspirado na natureza</p>
+                <div class="options">
+                    <div onclick="changeColor('model-leaf', 0)"></div>
+                    <div onclick="changeColor('model-leaf', 90)"></div>
+                    <div onclick="changeColor('model-leaf', 180)"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="model">
+                <model-viewer id="model-topo" src="./assets/models/topo_keyboard.glb" alt="Teclado TopoKey em 3D"
+                    auto-rotate camera-controls ar shadow-intensity="1"></model-viewer>
+            </div>
+            <div class="content">
+                <h2>TopoKey</h2>
+                <p>Design brutalista urbano</p>
+                <div class="options">
+                    <div data-rotation="0"></div>
+                    <div data-rotation="90"></div>
+                    <div data-rotation="180"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="model">
+                <model-viewer id="model-panda" src="./assets/models/panda_keyboard.glb" alt="Teclado PandaKey em 3D"
+                    auto-rotate camera-controls ar shadow-intensity="1"></model-viewer>
+            </div>
+            <div class="content">
+                <h2>PandaKey</h2>
+                <p>Preto no branco minimalista</p>
+                <div class="options">
+                    <div onclick="changeColor('model-panda', 60)"></div>
+                    <div onclick="changeColor('model-panda', 120)"></div>
+                    <div onclick="changeColor('model-panda', 300)"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function changeColor(modelId, angle) {
+            const modelViewer = document.getElementById(modelId);
+            if (modelViewer) {
+                modelViewer.cameraOrbit = `${angle}deg auto auto`;
+            }
+        }
+    </script>
+</body>
+
+</html>
